@@ -46,27 +46,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-neutral-950/90 backdrop-blur-md border-b border-neutral-800">
+    <header className="sticky top-0 z-40 bg-[var(--color-bg-deep)]/90 backdrop-blur-md border-b border-[var(--color-border-subtle)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
-        {/* Zone 1: Brand Title (One line, no child taglines) */}
+        {/* Zone 1: Brand Title — хроматический эффект бренда */}
         <div
           onClick={() => onSelectTab('home')}
-          className="flex items-center space-x-2 cursor-pointer select-none group shrink-0"
+          className="flex items-center space-x-2 cursor-pointer select-none shrink-0"
         >
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-purple-600 to-amber-400 p-[1px] shadow-sm">
-            <div className="w-full h-full bg-neutral-950 rounded-[7px] flex items-center justify-center">
-              <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-300 text-xs">
-                5D
-              </span>
+          {/* Визуальный идентификатор бренда — тессеракт */}
+          <div className="brand-icon w-8 h-8">
+            <div className="w-full h-full relative">
+              <div className="absolute inset-0 border-2 border-[var(--color-accent-primary)] rounded-md"></div>
+              <div className="absolute inset-1.5 border-2 border-[var(--color-accent-secondary)] rounded-sm rotate-45"></div>
             </div>
           </div>
-          <span className="font-display font-black tracking-wider text-white text-base group-hover:text-purple-300 transition-colors whitespace-nowrap">
+          <span className="brand-logo group-hover:opacity-90 transition-opacity whitespace-nowrap">
             5DMAXING
           </span>
         </div>
 
-        {/* Zone 2: Navigation Links (Desktop, single line, 1-2 word labels) */}
+        {/* Zone 2: Navigation Links (Desktop) */}
         <nav className="hidden lg:flex items-center space-x-1 text-xs font-medium">
           {navLinks.map((link) => {
             const isActive = currentTab === link.id;
@@ -79,8 +79,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                   isActive
-                    ? 'bg-purple-950/60 text-white border border-purple-500/50 shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900/60'
+                    ? 'bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] border border-[var(--color-border-accent)] shadow-sm'
+                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-surface)]'
                 }`}
               >
                 {link.icon}
@@ -90,25 +90,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: Actions (1-2 Primary Actions) */}
+        {/* Zone 3: Actions */}
         <div className="flex items-center space-x-2 shrink-0">
           
           {/* Quick 60s Abundance Test CTA */}
           {onOpenQuiz && (
             <button
               onClick={onOpenQuiz}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/40 text-purple-200 text-xs font-mono font-medium transition-colors cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--color-bg-elevated)] hover:bg-[var(--color-accent-secondary)]/20 border border-[var(--color-border-subtle)] hover:border-[var(--color-accent-secondary)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-xs font-mono font-medium transition-all cursor-pointer"
               title="Пройти 60-секундный тест уровня изобилия"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent-gold)]" />
               <span className="hidden xl:inline">Тест Изобилия (60с)</span>
             </button>
           )}
 
           {/* PRO Upgrade Button or PRO Status Pill */}
           {isPro ? (
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-950/60 border border-purple-500/40 text-amber-300 font-mono text-xs font-bold">
-              <Crown className="w-3.5 h-3.5 text-amber-400" />
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-accent-gold)]/40 text-[var(--color-accent-gold)] font-mono text-xs font-bold">
+              <Crown className="w-3.5 h-3.5" />
               <span>PRO PASS</span>
             </div>
           ) : (
@@ -125,8 +125,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       </div>
 
-      {/* Mobile Navigation Strip (Bottom or secondary row) */}
-      <div className="lg:hidden flex items-center gap-1 px-4 py-2 border-t border-neutral-800/60 overflow-x-auto scrollbar-none bg-neutral-950/95">
+      {/* Mobile Navigation Strip */}
+      <div className="lg:hidden flex items-center gap-1 px-4 py-2 border-t border-[var(--color-border-subtle)] overflow-x-auto scrollbar-none bg-[var(--color-bg-deep)]/95">
         {navLinks.map((link) => {
           const isActive = currentTab === link.id;
           return (
@@ -135,8 +135,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => onSelectTab(link.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap shrink-0 transition-all flex items-center gap-1.5 ${
                 isActive
-                  ? 'bg-purple-950/80 text-white border border-purple-500/50'
-                  : 'text-neutral-400 bg-neutral-900/40'
+                  ? 'bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] border border-[var(--color-border-accent)]'
+                  : 'text-[var(--color-text-secondary)] bg-[var(--color-bg-surface)]'
               }`}
             >
               {link.icon}

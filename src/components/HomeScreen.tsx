@@ -75,27 +75,27 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   };
 
   return (
-    <div className="space-y-12 animate-fadeIn max-w-5xl mx-auto pb-10">
+    <div className="space-y-12 animate-fadeIn max-w-5xl mx-auto pb-10 relative z-10">
       
       {/* ========================================================================= */}
       {/* 1. THE CORE CONSUMER HOOK: WHAT DO YOU WANT MORE OF?                      */}
       {/* ========================================================================= */}
       <section className="text-center space-y-6 pt-2 sm:pt-4">
         
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/70 border border-purple-500/30 text-purple-300 text-xs font-mono font-bold tracking-wider">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-accent)] text-[var(--color-accent-primary)] text-xs font-mono font-bold tracking-wider">
+          <span className="w-2 h-2 rounded-full bg-[var(--color-accent-gold)] animate-pulse" />
           <span>ENTER YOUR 5D ERA</span>
         </div>
 
         <div className="space-y-3 max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black font-display text-white tracking-tight leading-tight">
-            WHAT DO YOU WANT <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-purple-400 via-amber-300 to-yellow-200 bg-clip-text text-transparent">
-              MORE OF?
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black font-display text-[var(--color-text-primary)] tracking-tight leading-tight">
+            ЧЕГО ТЫ ХОЧЕШЬ <br className="hidden sm:block" />
+            <span className="text-glow-accent bg-gradient-to-r from-[var(--color-accent-primary)] via-[var(--color-accent-gold)] to-[var(--color-accent-secondary)] bg-clip-text text-transparent">
+              БОЛЬШЕ?
             </span>
           </h1>
-          <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto font-medium">
-            Выбери главное желание прямо сейчас. Пройди 60-секундный тест изобилия и открой персональный ритуал.
+          <p className="text-sm sm:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto font-medium">
+            Выбери главное желание. Пройди 60-секундный тест и открой персональный протокол.
           </p>
         </div>
 
@@ -109,35 +109,35 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 onSelectDesire(opt.id);
                 onOpenQuiz(opt.id);
               }}
-              className="p-5 rounded-2xl bg-neutral-900/80 hover:bg-neutral-900 border border-neutral-800 hover:border-purple-500/60 transition-all duration-200 flex flex-col justify-between space-y-4 group cursor-pointer shadow-lg hover:shadow-purple-950/40 hover:-translate-y-0.5 text-left"
+              className="card-surface p-5 flex flex-col justify-between space-y-4 group cursor-pointer hover:border-[var(--color-border-accent)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="p-2.5 rounded-xl bg-neutral-950 border border-neutral-800 group-hover:border-purple-500/40 transition-colors">
+                  <div className="p-2.5 rounded-xl bg-[var(--color-bg-deep)] border border-[var(--color-border-subtle)] group-hover:border-[var(--color-border-accent)] transition-colors">
                     {renderIcon(opt.iconName)}
                   </div>
-                  <span className="text-[11px] font-mono text-neutral-400 font-bold group-hover:text-purple-300 transition-colors">
+                  <span className="text-[11px] font-mono text-[var(--color-text-muted)] font-bold group-hover:text-[var(--color-accent-primary)] transition-colors">
                     {opt.targetHz} Hz
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-extrabold font-display text-white group-hover:text-amber-300 transition-colors">
+                  <h3 className="text-base font-extrabold font-display text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-primary)] transition-colors">
                     {opt.title}
                   </h3>
-                  <div className="text-xs text-purple-300 italic font-medium mt-0.5">
+                  <div className="text-xs text-[var(--color-text-secondary)] italic font-medium mt-0.5">
                     {opt.tagline}
                   </div>
                 </div>
 
-                <p className="text-xs text-neutral-400 leading-snug line-clamp-2">
+                <p className="text-xs text-[var(--color-text-muted)] leading-snug line-clamp-2">
                   {opt.hookSubtitle}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-neutral-800/80 flex items-center justify-between text-xs font-mono text-neutral-300 group-hover:text-white">
+              <div className="pt-2 border-t border-[var(--color-border-subtle)] flex items-center justify-between text-xs font-mono text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]">
                 <span>Пройти тест</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-purple-400" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[var(--color-accent-primary)]" />
               </div>
             </button>
           ))}
@@ -148,48 +148,48 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* ========================================================================= */}
       {/* 2. TODAY'S 5D HUB: ONE SCREEN → ONE DECISION                              */}
       {/* ========================================================================= */}
-      <section className="rounded-3xl p-6 sm:p-9 bg-gradient-to-b from-neutral-950 via-purple-950/20 to-neutral-950 border border-purple-500/30 shadow-2xl relative overflow-hidden space-y-6">
+      <section className="rounded-3xl p-6 sm:p-9 bg-[var(--color-bg-surface)] border border-[var(--color-border-accent)] shadow-2xl relative overflow-hidden space-y-6">
         
         {/* Subtle glow */}
-        <div className="absolute -top-10 -right-10 w-80 h-80 bg-purple-600/15 blur-[100px] pointer-events-none rounded-full" />
+        <div className="absolute -top-10 -right-10 w-80 h-80 bg-[var(--color-accent-secondary)]/15 blur-[100px] pointer-events-none rounded-full" />
         
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-800/80 pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-4">
           <div className="flex items-center gap-2.5">
-            <span className="p-2 rounded-xl bg-purple-950/80 border border-purple-500/40 text-purple-300">
-              <Radio className="w-4 h-4 text-purple-400" />
+            <span className="p-2 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-accent)] text-[var(--color-accent-primary)]">
+              <Radio className="w-4 h-4" />
             </span>
             <div>
-              <div className="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider">
+              <div className="text-xs font-mono font-bold text-[var(--color-accent-primary)] uppercase tracking-wider">
                 TODAY'S 5D RITUAL // НАСТРОЙКА ДНЯ
               </div>
-              <div className="text-xs text-neutral-400">
+              <div className="text-xs text-[var(--color-text-muted)]">
                 Калибровка состояния за 3 минуты
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-amber-300">
-              <Flame className="w-3.5 h-3.5 text-amber-400" />
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-bg-deep)] border border-[var(--color-border-subtle)] text-xs font-mono text-[var(--color-accent-gold)]">
+              <Flame className="w-3.5 h-3.5" />
               <span>{userProfile.streakDays} ДНЕЙ СЕРИИ</span>
             </div>
-            <div className="px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-purple-300">
+            <div className="px-3 py-1 rounded-full bg-[var(--color-bg-deep)] border border-[var(--color-border-subtle)] text-xs font-mono text-[var(--color-accent-primary)]">
               {userProfile.exp} EXP
             </div>
           </div>
         </div>
 
         {/* Recommended Protocol Banner */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-6 rounded-2xl bg-neutral-900/70 border border-neutral-800">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-6 rounded-2xl bg-[var(--color-bg-deep)] border border-[var(--color-border-subtle)]">
           <div className="space-y-1.5 max-w-xl">
-            <div className="inline-block text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider">
-              РЕКОМЕНДОВАНО ДЛЯ ТВОЕГО ТЕКУЩЕГО УРОВНЯ
+            <div className="inline-block text-[11px] font-mono font-bold text-[var(--color-accent-gold)] uppercase tracking-wider">
+              РЕКОМЕНДОВАНО ДЛЯ ТВОЕГО УРОВНЯ
             </div>
-            <h2 className="text-2xl font-bold font-display text-white">
+            <h2 className="text-2xl font-bold font-display text-[var(--color-text-primary)]">
               {recommendedProtocol.title}
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-              {recommendedProtocol.subtitle} · {recommendedProtocol.durationMin} минут сессии · {recommendedProtocol.frequencyTag}
+            <p className="text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              {recommendedProtocol.subtitle} · {recommendedProtocol.durationMin} мин · {recommendedProtocol.frequencyTag}
             </p>
           </div>
 
